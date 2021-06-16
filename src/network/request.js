@@ -1,70 +1,47 @@
 import axios from 'axios'
-require('../mock/mock')
 
 export function request(config) {
-
   const instance = axios.create({
-    baseURL: 'http://123.207.32.32:8000',
+    baseURL: '/api/weather/common',
     timeout: 5000
   })
 
-
-  instance.interceptors.request.use(config => {
-    return config
-  },err => {
+  // 添加请求拦截器
+  instance.interceptors.request.use((config) => {
+    return config;
+  }, (err) => {
     console.log(err);
   })
 
-  instance.interceptors.response.use(res => {
-    return res.data
-  },err => {
+  // 添加响应拦截器
+  instance.interceptors.response.use((res) => {
+    return res.data;
+  }, (err) => {
     console.log(err);
   })
 
-  return instance(config)
-
+  return instance(config);
 }
 
-// 自己创建的接口
 export function request2(config) {
   const instance2 = axios.create({
-    baseURL: 'http://127.0.0.1:8001',
+    baseURL: '/weather/data/city3jdata',
     timeout: 5000
   })
 
-  instance2.interceptors.request.use(config => {
-    return config
-  },err => {
+  // 添加请求拦截器
+  instance2.interceptors.request.use(res => {
+    return res
+  }, err => {
     console.log(err);
   })
 
+  // 添加响应拦截器
   instance2.interceptors.response.use(res => {
     return res.data
-  },err => {
+  }, err => {
     console.log(err);
   })
 
-  return instance2(config)
-}
-
-// mockjs模拟数据
-// detail数据
-export function request3(config) {
-  return axios({
-    url: '/detail'
-  })
-}
-
-// home的数据
-export function request4(config) {
-  return axios({
-    url: '/home/data'
-  })
-}
-
-// detail的recommend数据
-export function request5(config) {
-  return axios({
-    url: '/recommend'
-  })
+  return instance2(config);
 }

@@ -1,37 +1,57 @@
-import {request, request2, request4, request6} from './request'
+import { request } from './request'
 
-export function getHomeMultidata() {
+/* 空气状况air */
+export function getAir(province, city) {
   return request({
-    url: '/home/multidata'
-  })
-}
-
-export function getHomeGoods(type, page) {
-  return request({
-    url: 'home/data',
     params: {
-      type,
-      page
+      source: 'pc',
+      weather_type: 'observe|index|rise|alarm|air|tips|forecast_24h',
+      province,
+      city
     }
   })
 }
 
-/* 模拟数据 */
-// export function getHomeGoods(type, page) {
-//   return request2({
-//     url: 'eduservice/course/courseQueryCondition/0/8',
-//     method: 'post'
-//   })
-// }
-
-// 模拟home数据
-export function getMockHomeGoods(type, page) {
-  return request4({
-    url: '/home/data',
+/* 未来几天天气forecast_24h */
+export function getFuture(province, city) {
+  return request({
     params: {
-      type,
-      page
+      source: 'pc',
+      weather_type: 'forecast_24h',
+      province,
+      city
     }
   })
 }
 
+/* 各类指标index */
+export function getIndex(province, city) {
+  return request({
+    params: {
+      source: 'pc',
+      weather_type: 'index',
+      province,
+      city
+    }
+  })
+}
+
+/* 天气状况observe */
+export function getObserve(province, city) {
+  return request({
+    params: {
+      source: 'pc',
+      weather_type: 'observe',
+      province,
+      city
+    }
+  })
+}
+
+export class WeatherIndex {
+  constructor(index) {
+    this.umbrella = index.umbrella;
+    this.clothes = index.clothes;
+    this.ultraviolet = index.ultraviolet;
+  }
+}

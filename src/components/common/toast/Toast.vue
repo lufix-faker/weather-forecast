@@ -6,45 +6,43 @@
 
 <script>
 export default {
-  name: 'Toast',
+  name: "Toast",
   props: {
     message: {
       type: String,
-      default: ''
+      default: "",
     },
     isShow: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
-    show(message="默认文字", duration=1000) {
+    show(message, duration = 1500) {
       this.message = message;
       this.isShow = true;
 
       setTimeout(() => {
         this.isShow = false;
-        this.message = '';
+        this.message = "";
       }, duration);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
-  .toast {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.toast {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
 
-    padding: 6px 10px;
-    border-radius: 5px;
+  padding: 6px 10px;
+  border-radius: 5px;
 
-    z-index: 50;
-
-    font-size: 14px;
-    color: #fff;
-    background-color: rgba(0,0,0,0.6);
-  }
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  color: #fff;
+}
 </style>

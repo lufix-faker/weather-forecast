@@ -1,28 +1,23 @@
 import Vue from 'vue'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
 import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import toast from 'components/common/toast'
+import Toast from 'components/common/toast'
 
-import FastClick from 'fastclick'
-import VueLazyLoad from 'vue-lazyload'
+// 安装vue-awesome-swiper插件
+import 'swiper/css/swiper.css'
+Vue.use(VueAwesomeSwiper);
 
 Vue.config.productionTip = false
 
+// 安装toast自定义插件
+Vue.use(Toast);
+
 // 注册事件总线
 Vue.prototype.$bus = new Vue()
-
-// 安装toast插件
-Vue.use(toast)
-
-// 解决移动端300ms延迟
-FastClick.attach(document.body);
-
-// 图片懒加载
-Vue.use(VueLazyLoad, {
-  loading: 'assets/img/common/placeholder.png'
-});
 
 new Vue({
   render: h => h(App),

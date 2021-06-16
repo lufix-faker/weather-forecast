@@ -1,4 +1,3 @@
-// 修改webpack配置
 module.exports = {
   configureWebpack: {
     resolve: {
@@ -12,17 +11,26 @@ module.exports = {
       }
     }
   },
-  // devServer: {
-  //   proxy: {
-  //     '/api': {
-  //       target: 'http://suggest.taobao.com',
-  //       // 允许跨域
-  //       changOrigin: true,
-  //       pathRewrite: {
-  //         // 重写路径
-  //         '^/api': ''
-  //       }
-  //     }
-  //   }
-  // }
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'https://wis.qq.com',
+        // 允许跨域
+        changOrigin: true,
+        pathRewrite: {
+          // 重写路径
+          '^/api': ''
+        }
+      },
+      '/weather': {
+        target: 'http://www.weather.com.cn',
+        // 允许跨域
+        changOrigin: true,
+        pathRewrite: {
+          // 重写路径
+          '^/weather': ''
+        }
+      }
+    }
+  }
 }
