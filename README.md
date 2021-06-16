@@ -3,29 +3,11 @@
 #### 介绍
 使用vue框架做的一个移动web版天气预报。
 
-#### 软件架构
-软件架构说明
-
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
+1.  cd 到项目根目录
+2.  npm install 安装相关依赖包
+3.  npm run serve 运行项目
 
 #### 特技
 
